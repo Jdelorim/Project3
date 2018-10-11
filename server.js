@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+require("./routes/apiRoutes")(app);
 
 // Send every other request to the React app
 
