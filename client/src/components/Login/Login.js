@@ -62,6 +62,10 @@ render(){
             type="submit" 
             >Submit</button> 
         </div>
+        <br></br>
+        <div className="go-login">
+            <a href="/Signup">Sign Up to gain access to Inventory</a>
+        </div>
         </form>
         </div>
         </div>
