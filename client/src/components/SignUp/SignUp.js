@@ -99,6 +99,10 @@ class SignUp extends Component {
                     type="submit" 
                     >Submit</button> 
                 </div>
+                <br></br>
+                <div className="go-login">
+                    <a href="/Login">Already got an account? Login in!</a>
+                </div>
                 </form>
                 </div>    
             </div>
