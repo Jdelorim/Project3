@@ -56,11 +56,12 @@ class SignUp extends Component {
         return(
             <div className="SignUp-main">
                 <div className="container">
+                    <div className="signupWrapper">
                     <div className="SignUp-header">
-                        <h1 className="grey-text">Sign Up</h1>
+                        <h1 className="SignUp-text">Sign Up</h1>
                     </div>
                 <form className="SignUp-form">
-                <label htmlFor="userName">Username: </label>
+                <label htmlFor="userName">Username</label>
                 <input
                     type="text"
                     name="userName"
@@ -68,15 +69,15 @@ class SignUp extends Component {
                     value={this.state.userName}
                     onChange={this.handleInputChange}
                 />
-                <label htmlFor="email">Email: </label>
+                <label htmlFor="email">Email</label>
                 <input
                     type="email"
                     name="email"
-                    placeholder="User@aol.com"
+                    placeholder="user@gmail.com"
                     value={this.state.email}
                     onChange={this.handleInputChange}
                 />
-                <label htmlFor="password">Password: </label>
+                <label htmlFor="password">Password</label>
                 <input
                     type="password"
                     name="password"
@@ -84,11 +85,11 @@ class SignUp extends Component {
                     value={this.state.password}
                     onChange={this.handleInputChange}
                 />
-                <label htmlFor="confirmPassword">Confim Password: </label>
+                <label htmlFor="confirmPassword">Confim Password</label>
                 <input
                     type="password"
                     name="confirmPassword"
-                    placeholder="Confirm Password"
+                    placeholder="confirm password"
                     value={this.state.confirmPassword}
                     onChange={this.handleInputChange}
                 />
@@ -104,6 +105,7 @@ class SignUp extends Component {
                     <a href="/Login">Already got an account? Login in!</a>
                 </div>
                 </form>
+                </div>
                 </div>    
             </div>
         )
