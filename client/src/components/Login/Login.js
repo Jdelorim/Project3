@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
+// import API from "../../utils/API";
+//Adding this here since we should call the API to get their inventory once the login is successful
 
 class Login extends Component {
 
