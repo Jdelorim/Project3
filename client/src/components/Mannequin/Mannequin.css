@@ -1,0 +1,55 @@
+.container {
+    width: 50%;
+    font-family: 'K2D', sans-serif;
+}
+
+.mannequin-wrapper {
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+    border-radius: 15px;
+    margin-top: 7%;
+}
+
+.mannequin-header {
+    background-color: #576CB8;
+    padding: 2%;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 3%;
+}
+
+.mannequin-text {
+    margin: 0;
+    font-size: 225%;
+    color: black;
+}
+
+.mannequin-form {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+label {
+    color: black;
+    font-size: 110%;
+}
+
+.submitBtn {
+    border-radius: 6px;
+    padding: 1.5%;
+    background-color: #52B6AC;
+    border-color: black;
+    margin-top: 1%;
+    border-width: medium;
+    font-size: 115%;
+
+}
+
+.submitBtn:hover {
+    background-color: #576CB8;
+    color: white;
+}
+
+a:hover {
+    color:#576CB8;
+}

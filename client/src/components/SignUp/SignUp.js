@@ -102,7 +102,7 @@ class SignUp extends Component {
                 </div>
                 <br></br>
                 <div className="go-login">
-                    <a href="/Login">Already got an account? Login in!</a>
+                    <a href="/Login">Already got an account? Log in!</a>
                 </div>
                 </form>
                 </div>
