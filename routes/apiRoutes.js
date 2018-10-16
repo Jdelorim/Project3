@@ -43,7 +43,7 @@ module.exports = function(app) {
 
   // POST route for saving a new item
   app.post("/api/items", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
+    db.Item.create(req.body).then(function(dbPost) {
       res.json(dbPost);
     });
   });

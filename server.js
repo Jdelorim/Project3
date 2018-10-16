@@ -3,6 +3,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
+// const router = require("express").Router();
+// const apiRoutes = require("./routes/apiRoutes");
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -18,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 require("./routes/apiRoutes")(app);
 
-router.use("/api", apiRoutes);
+// router.use("/api", apiRoutes);
 
 // Send every other request to the React app
 
@@ -32,3 +34,5 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
   });
 });
+
+
