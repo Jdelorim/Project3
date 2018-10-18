@@ -1,20 +1,14 @@
 import React, { Component } from "react";
 import "./Mannequin.css";
-import { Button, Card, Row, Col, Icon, Dropdown, NavItem, Input } from 'react-materialize';
+//import { Button, Card, Row, Col, Icon, Dropdown, NavItem, Input } from 'react-materialize';
 import classicTee from "../images/classicTee.png"
 
 
 class Mannequin extends Component {
 
-
-
-
-
-
     render(){
 
         //WIP - change state to reflect the new item being passed to it
-
         return(
             <div className="mannequin-main">
                 <div className="container">
@@ -29,10 +23,7 @@ class Mannequin extends Component {
                         {/* <img src={classicTee} /> */}
 
                         <ul><img src={this.props.clothingIcon}/></ul>
-
-
-
-
+                        
                     </form>
 
                     </div>

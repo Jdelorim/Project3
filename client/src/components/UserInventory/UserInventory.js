@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./UserInventory.css";
-import { Button, Card, Row, Col, Icon, Dropdown, NavItem, Input } from 'react-materialize';
+//import { Button, Card, Row, Col, Icon, Dropdown, NavItem, Input } from 'react-materialize';
 import classicTee from "../images/classicTee.png"
 import hoodie from "../images/hoodie.png"
 import poloMen from "../images/polo-men.png"
