@@ -28,7 +28,13 @@ class Mannequin extends Component {
 
                         {/* <img src={classicTee} /> */}
 
-                        <ul><img src={this.props.clothingIcon}/></ul>
+                        <ul><img src={this.props.hatIcon}/></ul>
+
+                        <ul><img src={this.props.shirtIcon}/></ul>
+
+                        <ul><img src={this.props.pantsIcon}/></ul>
+
+                        <ul><img src={this.props.shoesIcon}/></ul>
 
 
 

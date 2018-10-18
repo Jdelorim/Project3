@@ -6,7 +6,8 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import UserInventory from "./components/UserInventory";
 import Mannequin from "./components/Mannequin"
-import classicTee from "./components/images/classicTee.png"
+import AddItem from "./components/AddItem"
+
 import "./App.css";
 
 class App extends Component {
@@ -18,13 +19,33 @@ class App extends Component {
   clothing: {shirts: [""]},
   user: "carter",
   selectedClothing: "",
-  clothingIcon: ""  
+  hatIcon: "", 
+  shirtIcon: "",
+  pantsIcon: "",
+  shoesIcon: ""
   }
 
-handleEvent = (icon) => {
-  // alert ("alert")
-  this.setState({clothingIcon: icon})
+handleHat = (icon) => {
+  this.setState({hatIcon: icon})
 }
+
+handleShirt = (icon) => {
+  // alert ("alert")
+  // if (icon===)
+  this.setState({shirtIcon: icon})
+
+}
+
+handlePants = (icon) => {
+    this.setState({pantsIcon: icon})
+}
+
+handleShoes = (icon) => {
+  this.setState({shoesIcon: icon})
+}
+
+
+
 
   render() {
     return (
@@ -35,10 +56,18 @@ handleEvent = (icon) => {
           <Route exact path="/" component={Home} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={SignUp} />
-          
-          <Route path="/UserInventory" render={(props) => (<UserInventory {...props} clothing={this.state.clothing} handleEvent={this.handleEvent} />)} /> 
-          <Route path="/UserInventory" render={(props) => (<Mannequin {...props} clothingIcon={this.state.clothingIcon} />)} /> 
+          <Route exact path="/AddItem" component={AddItem} />
 
+          
+          <div className='flex-container'>
+         
+          <Route path="/UserInventory" render={(props) => (<UserInventory {...props} clothing={this.state.clothing} handleShirt={this.handleShirt} handlePants={this.handlePants} handleShoes={this.handleShoes} handleHat={this.handleHat}/>)} /> 
+          <Route path="/UserInventory" render={(props) => (<Mannequin {...props} shirtIcon={this.state.shirtIcon} pantsIcon={this.state.pantsIcon} shoesIcon={this.state.shoesIcon} hatIcon={this.state.hatIcon} />)} /> 
+         
+          </div>
+
+
+         
   
         {/* </Switch> */}
       </div>

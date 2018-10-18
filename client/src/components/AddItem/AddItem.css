@@ -1,7 +1,7 @@
-.inventory-main {
+.addItem-main {
     width: 100%;
-    padding: 0;
-    margin-right: -15%;
+    margin:0;
+    /* margin-left: -15%; */
 
 }
 
@@ -9,9 +9,10 @@
     /* width: 50%; */
     font-family: 'K2D', sans-serif;
     display: inline-block;
+    
 }
 
-.inventory-wrapper {
+.addItem-wrapper {
     border-style: solid;
     border-color: black;
     border-width: thick;
@@ -19,20 +20,20 @@
     margin-top: 7%;
 }
 
-.inventory-header {
+.addItem-header {
     background-color: #576CB8;
     padding: 2%;
     border-radius: 10px 10px 0px 0px;
     margin-bottom: 3%;
 }
 
-.inventory-text {
+.addItem-text {
     margin: 0;
     font-size: 225%;
     color: black;
 }
 
-.inventory-form {
+.addItem-form {
     padding-left: 12%;
     padding-right: 12%;
 }

@@ -13,8 +13,12 @@ class Navbar extends Component {
               <a href="/" className="brand-logo center">Inventory</a>
               <ul id="nav-mobile" className="left hide-on-small-only ">
                 <li><a href="/UserInventory">Inventory</a></li>
+                <li><a href="/AddItem">Add Item</a></li>
+                
+
                 <li><a href="/Signup">Signup</a></li>
                 <li><a href="/Login">Login</a></li>
+                
                 
               </ul>
               </div>
