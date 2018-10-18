@@ -28,36 +28,42 @@ function seed() {
     ]
 
     let items = [
-        // {
-        //     description: 
-        //     type:
-        //     img: 
-        // },
-        // {
-        //     description: 
-        //     type:
-        //     img: 
-        // },
-        // {
-        //     description: 
-        //     type:
-        //     img: 
-        // },
-        // {
-        //     description: 
-        //     type:
-        //     img: 
-        // },
-        // {
-        //     description: 
-        //     type:
-        //     img: 
-        // },
-        // {
-        //     description: 
-        //     type:
-        //     img: 
-        // }
+        {
+            description: "White Tee Shirt",
+            type: "shirt",
+            img: "#",
+            UserId: ""
+        },
+        {
+            description: "Blue Jeans",
+            type: "pant",
+            img: "#",
+            UserId: ""
+        },
+        {
+            description: "White Sneakers",
+            type: "shoe",
+            img: "#",
+            UserId: ""
+        },
+        {
+            description: "Black Jeans",
+            type: "pant",
+            img: "#",
+            UserId: ""
+        },
+        {
+            description: "Black Tee Shirt",
+            type: "shirt",
+            img: "#",
+            UserId: ""
+        },
+        {
+            description: "Black Sneakers",
+            type: "shoe",
+            img: "#",
+            UserId: ""
+        }
     ]
 
     function getRandomInt(min, max) {
@@ -70,11 +76,13 @@ function seed() {
         db.User.create(user)
         .then(result => {
             console.log(result);
-            let userClothingCount = getRandomInt(0 , 20);
+            let userClothingCount = getRandomInt(1 , items.length - 1);
             for (let i = 0; i < userClothingCount; i++) {
                 let itemIndex = getRandomInt(0, items.length);
                 let item = items[itemIndex];
-                item.UserID=result.dataValues.id;
+                item.UserId=result.dataValues.id;
+                console.log("item: " + JSON.stringify(item, null, 2));
+                console.log("item.UserId: " + item.UserId);
                 db.Item.create(item)
                 .then(result=> {
                     console.log(result);

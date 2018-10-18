@@ -1,6 +1,15 @@
+.mannequin-main {
+    width: 100%;
+    margin:0;
+    margin-left: -15%;
+
+}
+
 .container {
-    width: 50%;
+    /* width: 50%; */
     font-family: 'K2D', sans-serif;
+    display: inline-block;
+    
 }
 
 .mannequin-wrapper {
