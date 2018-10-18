@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -8,6 +9,10 @@ const app = express();
 var db = require("./models");
 
 // Define middleware here
+
+//Adding morgan
+app.use(morgan("dev"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)

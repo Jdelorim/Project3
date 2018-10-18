@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./SignUp.css";
 
 class SignUp extends Component {
@@ -43,10 +44,30 @@ class SignUp extends Component {
           confirmPassword: ""
       });
 
+
+      axios.post("/api/signup", {
+          userName: this.state.userName,
+          password: this.state.password,
+          email: this.state.email
+      }).then(response => {
+          console.log(response);
+          if(response.data) {
+              console.log("successful signup");
+              this.setState({
+                  redirectTo: "/Login"
+              })
+          } else {
+              console.log("Sign-up err");
+          }
+      }).catch(error => {
+          console.log(`sign up server errors ${error}`);
+      })
+      /*
       console.log(`username: ${this.state.userName}`);
       console.log(`username: ${this.state.email}`);
       console.log(`password: ${this.state.password}`);
       console.log(`confirmPassword: ${this.state.confirmPassword}`);
+      */
     }
     };
 

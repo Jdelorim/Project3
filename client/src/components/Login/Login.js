@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./Login.css";
-// import API from "../../utils/API";
-//Adding this here since we should call the API to get their inventory once the login is successful
-
 
 class Login extends Component {
 
@@ -38,20 +35,19 @@ render(){
     return(
     <div className="login-main">
         <div className="container">
-            <div className="loginWrapper">
             <div className="login-header">
-                <h1 className="login-text">Login</h1>
+                <h1 className="grey-text">Login</h1>
             </div>
         <form className="login-form">
-        <label htmlFor="email">Email </label>
+        <label htmlFor="email">Email: </label>
         <input
             type="text"
             name="email"
-            placeholder="user@gmail.com"
+            placeholder="User@aol.com"
             value={this.state.email}
             onChange={this.handleInputChange}
         />
-        <label htmlFor="password">Password </label>
+        <label htmlFor="password">Password: </label>
         <input
             type="password"
             name="password"
@@ -71,7 +67,6 @@ render(){
             <a href="/Signup">Sign Up to gain access to Inventory</a>
         </div>
         </form>
-        </div>
         </div>
         </div>
     )
