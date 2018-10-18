@@ -10,11 +10,14 @@ var db = require("../models");
 module.exports = function(app) {
 
   app.post("/api/signup", (req,res,next)=> {
-    /*
-    console.log(req.body.userName);
-    console.log(req.body.password);
-    console.log(req.body.email);
-    */
+    const users ={
+      username: req.body.userName,
+      email: req.body.email,
+      password: req.body.password
+    }
+    db.User.create(users);
+    
+    console.log(`users: ${users.username}`);
     res.end();
   });
   // GET route for getting all of the posts
