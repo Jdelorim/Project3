@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link, Redirect} from "react-router-dom";
 import "./SignUp.css";
+
 
 class SignUp extends Component {
 
@@ -8,7 +10,9 @@ class SignUp extends Component {
         userName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        signedUp: false,
+        showTaken: false
     };
 
     handleInputChange = event => {
@@ -42,6 +46,7 @@ class SignUp extends Component {
           email: "",
           password: "",
           confirmPassword: ""
+          
       });
 
 
@@ -50,33 +55,36 @@ class SignUp extends Component {
           password: this.state.password,
           email: this.state.email
       }).then(response => {
-          console.log(response);
-          if(response.data) {
+          console.log("REPONSE ON FRONT END: ",response);
+          if(!response.data) {
               console.log("successful signup");
+                this.setState({
+                  signedUp: true
+                })
+            } else {
+              console.log("username already taken!");
               this.setState({
-                  redirectTo: "/Login"
-              })
-          } else {
-              console.log("Sign-up err");
+                showTaken: true
+            })
           }
       }).catch(error => {
           console.log(`sign up server errors ${error}`);
       })
-      /*
-      console.log(`username: ${this.state.userName}`);
-      console.log(`username: ${this.state.email}`);
-      console.log(`password: ${this.state.password}`);
-      console.log(`confirmPassword: ${this.state.confirmPassword}`);
-      */
-    }
+     }
     };
 
 
 
     render(){
+        if(this.state.signedUp === true){
+          return <Redirect to="/Login" />
+        }
+
         return(
+
             <div className="SignUp-main">
                 <div className="container">
+               {this.state.showTaken ?  <div className="taken">username already taken</div> : null}
                     <div className="signupWrapper">
                     <div className="SignUp-header">
                         <h1 className="SignUp-text">Sign Up</h1>
@@ -123,7 +131,7 @@ class SignUp extends Component {
                 </div>
                 <br></br>
                 <div className="go-login">
-                    <a href="/Login">Already got an account? Log in!</a>
+                    <Link to="/Login">Already got an account? Log in!</Link>
                 </div>
                 </form>
                 </div>

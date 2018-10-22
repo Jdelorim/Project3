@@ -10,15 +10,37 @@ var db = require("../models");
 module.exports = function(app) {
 
   app.post("/api/signup", (req,res,next)=> {
+    req.session.username = req.body.userName;
     const users ={
-      username: req.body.userName,
+      username: req.session.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      isCreated: false
     }
-    db.User.create(users);
-    
+    db.User.findOne({where: {username: users.username}}).then(username => {
+      //checks username if already in db
+        if(!username){
+          db.User.findOne({where: {email: users.email}}).then(email => {
+            if(!email){
+              //checks if email is in the db if it passes it adds new entry to db
+              db.User.create(users);
+              res.send(users.isCreated);
+            } else {
+              console.log("email already in DB!");
+              users.isCreated = true;
+              res.send(users.isCreated);
+              users.isCreated = false;
+            }
+          });
+        } else {
+          console.log("username in DB!");
+          users.isCreated = true;
+          res.send(users.isCreated);
+          users.isCreated = false;
+        }
+    });
     console.log(`users: ${users.username}`);
-    res.end();
+    // res.end();
   });
   // GET route for getting all of the posts
   app.get("/api/inventory", function(req, res) {
