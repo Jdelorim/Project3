@@ -51,6 +51,7 @@ handleShoes = (icon) => {
     return (
       <Router>
       <div className="App">
+ 
       <Navbar />
        {/* <Switch> */}
           <Route exact path="/" component={Home} />

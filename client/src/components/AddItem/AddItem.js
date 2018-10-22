@@ -6,34 +6,93 @@ import { Button, Card, Row, Col, Icon, Dropdown, NavItem, Input } from 'react-ma
 class AddItem extends Component {
 
 
+    state= {
+        itemName: "",
+        itemImage: "",
+        itemType: ""
+    };
 
+    handleInputChange = e => {
+      
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
 
+    handleSubmit = e => {
+        e.preventDefault();
+
+        if(this.state.itemName === "" || this.state.itemImage === "" || this.state.itemType === "") {
+            alert("please fill out all fields!");
+        } else if (this.state.itemType != "pants" && this.state.itemType != "hat" && this.state.itemType != "shirt" && this.state.itemType != "shoes") {
+            alert("please specify either 'shirt', 'pants', 'hat' or 'shoes'");
+
+        } else {
+        this.setState({
+            itemName: "",
+            itemImage: "",
+            itemType: ""
+        });
+        console.log(`email: ${this.state.email}`);
+        console.log(`password: ${this.state.password}`);
+        }
+    }
 
 
     render(){
 
-        //WIP - change state to reflect the new item being passed to it
 
         return(
+       
+
             <div className="addItem-main">
                 <div className="container">
                     <div className="addItem-wrapper">
                     <div className="addItem-header">
-                        <h1 className="addItem-text">Your Outfit</h1>
+                        <h1 className="addItem-text">Add Item</h1>
                     </div>
 
                     <form className="addItem-form">
-                        {/* <ul>Mannequin {this.props.selectedClothing}</ul> */}
+                        
+                    <label htmlFor="itemName">Item Name </label>
+                    <input
+                        type="text"
+                        name="itemName"
+                        placeholder="name this item!"
+                        value={this.state.itemName}
+                        onChange={this.handleInputChange}
+                    />
 
-                        {/* <img src={classicTee} /> */}
+                    <label htmlFor="itemImage">Item Image </label>
+                    <input
+                        type="text"
+                        name="itemImage"
+                        placeholder="Enter the URL for this item's image"
+                        value={this.state.itemImage}
+                        onChange={this.handleInputChange}
+                    />
 
-                        <ul><img src={this.props.hatIcon}/></ul>
 
-                        <ul><img src={this.props.shirtIcon}/></ul>
+                    {/* candidate for dropdown menu */}
+                    <label htmlFor="itemType">Item Type </label>
+                    <input
+                        type="text"
+                        name="itemType"
+                        placeholder="Is this item pants, shirt, hat or shoes?"
+                        value={this.state.itemType}
+                        onChange={this.handleInputChange}
+                    />
 
-                        <ul><img src={this.props.pantsIcon}/></ul>
+                    <div className="btnHolder">
+                        <button 
+                        className="submitBtn"
+                        onClick={this.handleSubmit}
+                        type="submit" 
+                        >Submit</button> 
+                    </div>
 
-                        <ul><img src={this.props.shoesIcon}/></ul>
+                    <br />
+
 
 
 
@@ -47,7 +106,7 @@ class AddItem extends Component {
             
             </div>
 
-
+            
 
         )
     }
