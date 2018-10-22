@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS inventory;
-CREATE DATABASE inventory;
+-- DROP DATABASE IF EXISTS inventory;
+-- CREATE DATABASE inventory;

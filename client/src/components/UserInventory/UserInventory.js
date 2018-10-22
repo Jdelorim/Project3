@@ -15,9 +15,7 @@ class UserInventory extends Component {
      
 
 
-    render(){
-
-      
+    render(){     
 
         // WIP - create the list of items and a button next to each. On click, pass the item to mannequin
 
