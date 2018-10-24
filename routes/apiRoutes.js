@@ -51,10 +51,7 @@ module.exports = function(app) {
                 req.login(database.id, (err)=>{
                   res.send(users.isCreated);
                 })
-                
               });
-              
-              
             } else {
               console.log("email already in DB!");
               users.isCreated = true;
