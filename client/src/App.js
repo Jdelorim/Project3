@@ -44,6 +44,12 @@ handleShoes = (icon) => {
   this.setState({shoesIcon: icon})
 }
 
+saveOutfit = () => {
+  const savedOutfit = [this.state.hatIcon, this.state.shirtIcon, this.state.pantsIcon, this.state.shoesIcon]
+  alert("alert " + savedOutfit)
+  //
+}
+
 
 
 
@@ -62,7 +68,7 @@ handleShoes = (icon) => {
           
           <div className='flex-container'>
          
-          <Route path="/UserInventory" render={(props) => (<UserInventory {...props} clothing={this.state.clothing} handleShirt={this.handleShirt} handlePants={this.handlePants} handleShoes={this.handleShoes} handleHat={this.handleHat}/>)} /> 
+          <Route path="/UserInventory" render={(props) => (<UserInventory {...props} clothing={this.state.clothing} handleShirt={this.handleShirt} handlePants={this.handlePants} handleShoes={this.handleShoes} handleHat={this.handleHat} saveOutfit={this.saveOutfit}/>)} /> 
           <Route path="/UserInventory" render={(props) => (<Mannequin {...props} shirtIcon={this.state.shirtIcon} pantsIcon={this.state.pantsIcon} shoesIcon={this.state.shoesIcon} hatIcon={this.state.hatIcon} />)} /> 
          
           </div>
