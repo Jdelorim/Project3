@@ -6,6 +6,7 @@ import classicTee from "../images/classicTee.png"
 
 class Mannequin extends Component {
 
+
     render(){
 
         //WIP - change state to reflect the new item being passed to it
@@ -23,16 +24,19 @@ class Mannequin extends Component {
                         {/* <img src={classicTee} /> */}
 
 
-                        <ul><img src={this.props.clothingIcon}/></ul>
+                        {/* <ul><img src={this.props.clothingIcon}/></ul> */}
                         
-                        <ul><img src={this.props.hatIcon}/></ul>
+                        <ul><img  src={this.props.hatIcon}/></ul>
 
-                        <ul><img src={this.props.shirtIcon}/></ul>
+                        <ul><img  src={this.props.shirtIcon}/></ul>
 
-                        <ul><img src={this.props.pantsIcon}/></ul>
+                        <ul><img  src={this.props.pantsIcon}/></ul>
 
-                        <ul><img src={this.props.shoesIcon}/></ul>
+                        <ul><img  src={this.props.shoesIcon}/></ul>
 
+                        <br />
+
+                  
 
 
 

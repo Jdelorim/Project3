@@ -13,6 +13,7 @@ class UserInventory extends Component {
     //user information - query databse to get shirt
     //state
      
+ 
 
 
     render(){     
@@ -34,8 +35,9 @@ class UserInventory extends Component {
                         <h1 className="inventory-text">Your Hats</h1>
                         </div>
 
+                        {/* TO DO - map from user inventory to display icons */}
 
-                        <ul onClick ={ () => this.props.handleHat(classicTee)}>classic tee</ul>
+                        <ul value="classicTee" onClick ={ () => this.props.handleHat(classicTee, "classic tee")}>classic tee</ul>
                         <ul onClick ={ () => this.props.handleHat("")}>clear</ul>
 
                         </div> 
@@ -48,9 +50,9 @@ class UserInventory extends Component {
                         <h1 className="inventory-text">Your Shirts</h1>
                         </div>
 
-                        <ul onClick ={ () => this.props.handleShirt(classicTee)}>classic tee</ul>
-                        <ul onClick ={ () => this.props.handleShirt(hoodie)}>hoodie</ul>
-                        <ul onClick ={ () => this.props.handleShirt(poloMen)}>polo</ul>
+                        <ul onClick ={ () => this.props.handleShirt(classicTee, "classic tee")}>classic tee</ul>
+                        <ul onClick ={ () => this.props.handleShirt(hoodie, "hoodie")}>hoodie</ul>
+                        <ul onClick ={ () => this.props.handleShirt(poloMen, "polo")}>polo</ul>
                         <ul onClick ={ () => this.props.handleShirt("")}>clear</ul>
 
 
@@ -62,8 +64,8 @@ class UserInventory extends Component {
                         <div className="inventory-header">
                         <h1 className="inventory-text">Your Pants</h1>
                         </div>
-                        <ul onClick ={ () => this.props.handlePants(classicTee)}>classic tee</ul>
-                        <ul onClick ={ () => this.props.handlePants(hoodie)}>hoodie</ul>
+                        <ul onClick ={ () => this.props.handlePants(classicTee, "classic tee")}>classic tee</ul>
+                        <ul onClick ={ () => this.props.handlePants(hoodie, "hoodie")}>hoodie</ul>
                         <ul onClick ={ () => this.props.handlePants("")}>clear</ul>
 
                         </div>
@@ -73,11 +75,38 @@ class UserInventory extends Component {
                         <div className="inventory-header">
                         <h1 className="inventory-text">Your Shoes</h1>
                         </div>
-                        <ul onClick ={ () => this.props.handleShoes(classicTee)}>classic tee</ul>
+                        <ul onClick ={ () => this.props.handleShoes(classicTee, "classic tee")}>classic tee</ul>
                         <ul onClick ={ () => this.props.handleShoes("")}>clear</ul>
 
                         </div>
                         <br />
+
+                        <div className="inventory-wrapper">
+                        <div className="inventory-header">
+                        <h1 className="inventory-text">Your Favorite Outfits</h1>
+                        
+                        
+                        </div >
+
+                            <div className="favorite-outfits">
+
+
+                            </div>                        
+
+                        </div>
+
+
+
+                        <div className="btnHolder">
+                            <button 
+                            className="submitBtn"
+                            onClick ={ () => this.props.saveOutfit()}
+                            type="submit" 
+                            >Save This Outfit</button> 
+                        </div>
+
+
+
                         
 
                         {/* <ul>{this.props.user}</ul> */}
