@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./AddItem.css";
 import { Button, Card, Row, Col, Icon, Dropdown, NavItem, Input } from 'react-materialize';
-
+import axios from "axios";
 
 class AddItem extends Component {
 
@@ -29,14 +29,24 @@ class AddItem extends Component {
 
         } else {
         this.setState({
-            itemName: "",
-            itemImage: "",
-            itemType: ""
+            itemName: this.state.itemName,
+            itemImage: this.state.itemImage,
+            itemType: this.state.itemType
         });
-        console.log(`email: ${this.state.email}`);
-        console.log(`password: ${this.state.password}`);
+        console.log(`itemName ${this.state.itemName}`);
+        console.log(`itemType ${this.state.itemType}`);
         }
+        axios.post("api/addItem", {
+            itemName: this.state.itemName,
+            itemImage: this.state.itemImage,
+            itemType: this.state.itemType
+        }).then(response => {
+            console.log("sent to front");
+        });
     }
+
+        
+
 
 
     render(){

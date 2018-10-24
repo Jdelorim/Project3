@@ -1,15 +1,17 @@
 const express = require("express");
-const session = require("express-session");
+const cookieParser = require('cookie-parser')
 const path = require("path");
 const morgan = require("morgan");
+const session = require("express-session");
+
 const bodyParser = require("body-parser");
-const passport = require("./passport")
 const PORT = process.env.PORT || 3001;
 const app = express();
+const passport = require("passport");
 
 // Requiring our models for syncing
-var db = require("./models");
-
+const db = require("./models");
+let randomString = (Math.random() + 1).toString(36).substring(7);
 // Define middleware here
 
 //Adding morgan
@@ -22,31 +24,27 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(
-  session({
-    secret: "fraggle-rock",
-    resave: false,
-    saveUninitialized: false
-  })
-);
-/*
-app.use((req,res,next)=>{
-  console.log(`req.session ${req.session}`);
-  next();
-});
-*/
+app.use(cookieParser()); 
+      
+app.use(session({
+  secret: randomString,
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
+
 // Define API routes here
 require("./routes/apiRoutes")(app);
 
-//router.use("/api", apiRoutes);
+
 
 // Send every other request to the React app
 
 // Define any API routes before this runs
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 db.sequelize.sync({ force: false }).then(function() {

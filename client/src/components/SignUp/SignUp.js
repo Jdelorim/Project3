@@ -77,7 +77,7 @@ class SignUp extends Component {
 
     render(){
         if(this.state.signedUp === true){
-          return <Redirect to="/Login" />
+          return <Redirect to="/UserInventory" />
         }
 
         return(
