@@ -1,30 +1,60 @@
 // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
-
+const bcrypt = require('bcrypt');
+const passport = require("passport");
 // Requiring our models
-var db = require("../models");
+const db = require("../models");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
+  app.post("/api/addItem", (req,res,next) => {
+    const items = {
+      description: req.body.itemName,
+      type: req.body.itemType,
+      img: req.body.itemImage
+    }
+
+    db.Item.create(items);
+  })
+
+
   app.post("/api/signup", (req,res,next)=> {
     req.session.username = req.body.userName;
+    
+    const oldPw = req.body.password;
+    const saltRounds = 10;
+    
     const users ={
       username: req.session.username,
       email: req.body.email,
-      password: req.body.password,
+      password: "",
       isCreated: false
     }
+
+    bcrypt.hash(oldPw, saltRounds, (err, hash) => {
+    console.log(`hashedPw ${hash}`);
+    users.password = hash;
+    console.log(`newpw ${users.password}`);
+    
     db.User.findOne({where: {username: users.username}}).then(username => {
       //checks username if already in db
         if(!username){
           db.User.findOne({where: {email: users.email}}).then(email => {
             if(!email){
               //checks if email is in the db if it passes it adds new entry to db
-              db.User.create(users);
-              res.send(users.isCreated);
+              db.User.create(users).then((database)=> {
+                const saveID = database.id;
+                console.log(`userID: ${saveID}`);
+                req.login(database.id, (err)=>{
+                  res.send(users.isCreated);
+                })
+                
+              });
+              
+              
             } else {
               console.log("email already in DB!");
               users.isCreated = true;
@@ -39,9 +69,23 @@ module.exports = function(app) {
           users.isCreated = false;
         }
     });
+  });
     console.log(`users: ${users.username}`);
     // res.end();
   });
+
+  passport.serializeUser((saveID, done) => {
+    done(null, saveID);
+});
+
+
+passport.deserializeUser((saveID, done) => {
+    console.log(`deserialized user called`);
+    done(null,saveID);
+});
+
+  //------------------------------------------------------------------------
+
   // GET route for getting all of the posts
   app.get("/api/inventory", function(req, res) {
     var query = {};
