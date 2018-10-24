@@ -22,7 +22,9 @@ class App extends Component {
   hatIcon: "", 
   shirtIcon: "",
   pantsIcon: "",
-  shoesIcon: ""
+  shoesIcon: "",
+  loggedIn: false,
+  username: null
   }
 
 handleHat = (icon) => {
