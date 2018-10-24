@@ -19,35 +19,42 @@ class App extends Component {
   clothing: {shirts: [""]},
   user: "carter",
   selectedClothing: "",
+
+  hatValue: "",
+  shirtValue: "",
+  pantsValue: "",
+  shoesValue: "",
+
   hatIcon: "", 
   shirtIcon: "",
   pantsIcon: "",
   shoesIcon: ""
   }
 
-handleHat = (icon) => {
-  this.setState({hatIcon: icon})
+handleHat = (icon, value) => {
+  this.setState({hatIcon: icon, hatValue: value})
 }
 
-handleShirt = (icon) => {
+handleShirt = (icon, value) => {
   // alert ("alert")
   // if (icon===)
-  this.setState({shirtIcon: icon})
+  this.setState({shirtIcon: icon, shirtValue: value})
 
 }
 
-handlePants = (icon) => {
-    this.setState({pantsIcon: icon})
+handlePants = (icon, value) => {
+    this.setState({pantsIcon: icon, pantsValue: value})
 }
 
-handleShoes = (icon) => {
-  this.setState({shoesIcon: icon})
+handleShoes = (icon, value) => {
+  this.setState({shoesIcon: icon, shoesValue: value})
 }
 
 saveOutfit = () => {
-  const savedOutfit = [this.state.hatIcon, this.state.shirtIcon, this.state.pantsIcon, this.state.shoesIcon]
+  const savedOutfit = [this.state.hatValue, this.state.shirtValue, this.state.pantsValue, this.state.shoesValue]
   alert("alert " + savedOutfit)
-  //
+  // save as favorite outfit
+  // append to a favorite outfit div
 }
 
 
